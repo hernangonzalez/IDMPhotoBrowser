@@ -1308,7 +1308,7 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
                 if (_photos.count > 1) {
                     [_photos removeObjectAtIndex:_currentPageIndex];
                     [self pageDisplayedAtIndex:_currentPageIndex].photo = nil;
-                    _currentPageIndex--;
+                    if (_currentPageIndex > 0) _currentPageIndex--;
                     [self reloadData];
                 } else {
                     [self performCloseAnimationWithScrollView:[self pageDisplayedAtIndex:_currentPageIndex]];
