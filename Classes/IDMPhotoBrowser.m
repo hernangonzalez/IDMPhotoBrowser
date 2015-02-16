@@ -1304,14 +1304,16 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     } else if (actionSheet == _deletionSheet) {
         if (buttonIndex == actionSheet.destructiveButtonIndex) {
             if ([_delegate respondsToSelector:@selector(photoBrowser:didRequestPhotoToBeDeleted:)]) {
-                [_delegate photoBrowser:self didRequestPhotoToBeDeleted:_currentPageIndex];
-                if (_photos.count > 1) {
-                    [_photos removeObjectAtIndex:_currentPageIndex];
-                    [self pageDisplayedAtIndex:_currentPageIndex].photo = nil;
-                    if (_currentPageIndex > 0) _currentPageIndex--;
-                    [self reloadData];
-                } else {
-                    [self performCloseAnimationWithScrollView:[self pageDisplayedAtIndex:_currentPageIndex]];
+                BOOL photoDeleted = [_delegate photoBrowser:self didRequestPhotoToBeDeleted:_currentPageIndex];
+                if (photoDeleted) {
+                    if (_photos.count > 1) {
+                        [_photos removeObjectAtIndex:_currentPageIndex];
+                        [self pageDisplayedAtIndex:_currentPageIndex].photo = nil;
+                        if (_currentPageIndex > 0) _currentPageIndex--;
+                        [self reloadData];
+                    } else {
+                        [self performCloseAnimationWithScrollView:[self pageDisplayedAtIndex:_currentPageIndex]];
+                    }
                 }
                 return;
             }

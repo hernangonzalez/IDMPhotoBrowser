@@ -20,7 +20,7 @@
 - (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didShowPhotoAtIndex:(NSUInteger)index;
 - (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didDismissAtPageIndex:(NSUInteger)index;
 - (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didDismissActionSheetWithButtonIndex:(NSUInteger)buttonIndex photoIndex:(NSUInteger)photoIndex;
-- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didRequestPhotoToBeDeleted:(NSUInteger)photoIndex;
+- (BOOL)photoBrowser:(IDMPhotoBrowser *)photoBrowser didRequestPhotoToBeDeleted:(NSUInteger)photoIndex;
 - (IDMCaptionView *)photoBrowser:(IDMPhotoBrowser *)photoBrowser captionViewForPhotoAtIndex:(NSUInteger)index;
 @end
 
