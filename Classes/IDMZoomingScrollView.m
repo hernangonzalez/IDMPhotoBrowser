@@ -184,6 +184,10 @@
     // maximum zoom scale to 0.5.
 	if ([UIScreen instancesRespondToSelector:@selector(scale)]) {
 		maxScale = maxScale / [[UIScreen mainScreen] scale];
+		
+		if (maxScale < minScale) {
+			maxScale = minScale * 2;
+		}
 	}
     
 	// Set
@@ -244,6 +248,11 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
 	[_photoBrowser hideControlsAfterDelay];
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 #pragma mark - Tap Detection
