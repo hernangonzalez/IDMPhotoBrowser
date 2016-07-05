@@ -827,7 +827,7 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     NSMutableArray *items = [NSMutableArray new];
 
     if (_displayActionButton)
-        [items addObject:fixedLeftSpace];
+        [items addObject:fixedRightSpace];
     [items addObject:flexSpace];
 
     if (numberOfPhotos > 1 && _displayArrowButton)
