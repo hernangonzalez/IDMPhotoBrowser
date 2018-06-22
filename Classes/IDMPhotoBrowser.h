@@ -57,6 +57,8 @@
 @property (nonatomic) BOOL usePopAnimation;
 @property (nonatomic) BOOL disableVerticalSwipe;
 
+@property (nonatomic, readonly) UIButton *doneButton;
+
 // Default value: true. Set to false to tell the photo viewer not to hide the interface when scrolling
 @property (nonatomic) BOOL autoHideInterface;
 
