@@ -141,6 +141,7 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
 @synthesize disableVerticalSwipe = _disableVerticalSwipe;
 @synthesize trackTintColor = _trackTintColor, progressTintColor = _progressTintColor;
 @synthesize delegate = _delegate;
+@synthesize doneButton = _doneButton;
 
 #pragma mark - NSObject
 
